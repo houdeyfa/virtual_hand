@@ -12,7 +12,7 @@ public class Manager : MonoBehaviour
     UdpClient client;
     public int port = 5052;
     public bool startRecieving = true;
-    public bool printToConsole = true;
+    public bool printToConsole = false;
     public string data;
 
 
@@ -40,11 +40,11 @@ public class Manager : MonoBehaviour
                 byte[] dataByte = client.Receive(ref anyIP);
                 data = Encoding.UTF8.GetString(dataByte);
 
-                if (printToConsole) { print(data); }
+                // if (printToConsole) { print(data); }
             }
             catch (Exception err)
             {
-                print(err.ToString());
+                // print(err.ToString());
             }
         }
     }
